@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C4BE413792EB7BF27E39B0B /* Pods_Timelapse_Pro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AD443555F04902BECA19BE0 /* Pods_Timelapse_Pro.framework */; };
 		B1C695391F7179D400A3EC32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C695381F7179D400A3EC32 /* AppDelegate.swift */; };
 		B1C6953B1F7179D400A3EC32 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C6953A1F7179D400A3EC32 /* ViewController.swift */; };
 		B1C6953E1F7179D400A3EC32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1C6953C1F7179D400A3EC32 /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1AD443555F04902BECA19BE0 /* Pods_Timelapse_Pro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Timelapse_Pro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C21DD8D46D7C5D8CC32B002 /* Pods-Timelapse Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Timelapse Pro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Timelapse Pro/Pods-Timelapse Pro.release.xcconfig"; sourceTree = "<group>"; };
 		B1C695351F7179D400A3EC32 /* Timelapse Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Timelapse Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1C695381F7179D400A3EC32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1C6953A1F7179D400A3EC32 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		B1C6953F1F7179D400A3EC32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1C695421F7179D400A3EC32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1C695441F7179D400A3EC32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F78A49B69C568464145406FD /* Pods-Timelapse Pro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Timelapse Pro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Timelapse Pro/Pods-Timelapse Pro.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C4BE413792EB7BF27E39B0B /* Pods_Timelapse_Pro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16360528A7D23B7290A3EBB7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F78A49B69C568464145406FD /* Pods-Timelapse Pro.debug.xcconfig */,
+				3C21DD8D46D7C5D8CC32B002 /* Pods-Timelapse Pro.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		34007DCC0941B26E3FF4CCA5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1AD443555F04902BECA19BE0 /* Pods_Timelapse_Pro.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B1C6952C1F7179D400A3EC32 = {
 			isa = PBXGroup;
 			children = (
 				B1C695371F7179D400A3EC32 /* Timelapse Pro */,
 				B1C695361F7179D400A3EC32 /* Products */,
+				16360528A7D23B7290A3EBB7 /* Pods */,
+				34007DCC0941B26E3FF4CCA5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B1C695471F7179D400A3EC32 /* Build configuration list for PBXNativeTarget "Timelapse Pro" */;
 			buildPhases = (
+				75EF80C28D1FFE491F377AF0 /* [CP] Check Pods Manifest.lock */,
 				B1C695311F7179D400A3EC32 /* Sources */,
 				B1C695321F7179D400A3EC32 /* Frameworks */,
 				B1C695331F7179D400A3EC32 /* Resources */,
+				7F1617B21FFC3E2870318412 /* [CP] Embed Pods Frameworks */,
+				DB2BA5BF7E9638D8C8E40C1A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -96,6 +123,7 @@
 				TargetAttributes = {
 					B1C695341F7179D400A3EC32 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 62V289D84M;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -130,6 +158,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		75EF80C28D1FFE491F377AF0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7F1617B21FFC3E2870318412 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Timelapse Pro/Pods-Timelapse Pro-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB2BA5BF7E9638D8C8E40C1A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Timelapse Pro/Pods-Timelapse Pro-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B1C695311F7179D400A3EC32 /* Sources */ = {
@@ -258,24 +334,32 @@
 		};
 		B1C695481F7179D400A3EC32 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F78A49B69C568464145406FD /* Pods-Timelapse Pro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 62V289D84M;
 				INFOPLIST_FILE = "Timelapse Pro/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.simon.Timelapse-Pro";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		B1C695491F7179D400A3EC32 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C21DD8D46D7C5D8CC32B002 /* Pods-Timelapse Pro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 62V289D84M;
 				INFOPLIST_FILE = "Timelapse Pro/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.simon.Timelapse-Pro";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -299,6 +383,7 @@
 				B1C695491F7179D400A3EC32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
