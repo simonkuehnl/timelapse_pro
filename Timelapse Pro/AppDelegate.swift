@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Timelapse Pro
 //
-//  Created by Simon Kühnl on 19.09.17.
+//  Created by Simon Kühnl and Michael Steinbach on 19.09.17.
 //  Copyright © 2017 flying-raspberry. All rights reserved.
 //
 
