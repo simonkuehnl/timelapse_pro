@@ -136,7 +136,7 @@
 				TargetAttributes = {
 					B1C695341F7179D400A3EC32 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 62V289D84M;
+						DevelopmentTeam = QP2QWY4CCW;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
@@ -356,10 +356,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 62V289D84M;
+				DEVELOPMENT_TEAM = QP2QWY4CCW;
 				INFOPLIST_FILE = "Timelapse Pro/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.simon.Timelapse-Pro";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.michael.Timelapse-Pro";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Timelapse Pro/Timelapse Pro-Bridging-Header.h";
@@ -375,10 +375,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 62V289D84M;
+				DEVELOPMENT_TEAM = QP2QWY4CCW;
 				INFOPLIST_FILE = "Timelapse Pro/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.simon.Timelapse-Pro";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.michael.Timelapse-Pro";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Timelapse Pro/Timelapse Pro-Bridging-Header.h";

@@ -58,8 +58,6 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     
     
     
-    
-    
     @IBOutlet weak var cameraPosition: MidPointCircularSlider!
     var receiveMessage = ""
     
