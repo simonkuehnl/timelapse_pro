@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -482,12 +482,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" highlightedImage="background" translatesAutoresizingMaskIntoConstraints="NO" id="qa1-M4-F5Y">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" highlightedImage="background" translatesAutoresizingMaskIntoConstraints="NO" id="qa1-M4-F5Y">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jze-i0-iGV">
-                                <rect key="frame" x="0.0" y="52" width="375" height="615"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bluetooth" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nib-3K-EFO">
+                                <rect key="frame" x="133" y="28" width="109" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jze-i0-iGV">
+                                <rect key="frame" x="0.0" y="76" width="375" height="515"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -533,20 +538,19 @@
                                     <outlet property="delegate" destination="l2A-Ol-NDR" id="bMW-Vc-DQj"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bluetooth" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nib-3K-EFO">
-                                <rect key="frame" x="133" y="28" width="109" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="qa1-M4-F5Y" firstAttribute="leading" secondItem="jze-i0-iGV" secondAttribute="leading" id="1ec-jG-HLL"/>
                             <constraint firstItem="jze-i0-iGV" firstAttribute="centerX" secondItem="71q-fy-j4q" secondAttribute="centerX" id="87F-Fd-vf0"/>
                             <constraint firstItem="jze-i0-iGV" firstAttribute="width" secondItem="71q-fy-j4q" secondAttribute="width" id="BHD-uV-mYP"/>
-                            <constraint firstItem="jze-i0-iGV" firstAttribute="height" secondItem="71q-fy-j4q" secondAttribute="height" id="GJa-bw-inA"/>
+                            <constraint firstItem="jze-i0-iGV" firstAttribute="top" secondItem="Nib-3K-EFO" secondAttribute="bottom" constant="16" id="CuM-1t-as9"/>
+                            <constraint firstItem="Nib-3K-EFO" firstAttribute="centerX" secondItem="qa1-M4-F5Y" secondAttribute="centerX" id="DGW-If-07Q"/>
+                            <constraint firstItem="qa1-M4-F5Y" firstAttribute="centerY" secondItem="jze-i0-iGV" secondAttribute="centerY" id="JGM-2z-jTk"/>
+                            <constraint firstItem="Nib-3K-EFO" firstAttribute="top" secondItem="lub-VA-Pvj" secondAttribute="bottom" constant="8" symbolic="YES" id="ajV-U9-Tc4"/>
                             <constraint firstAttribute="centerY" secondItem="jze-i0-iGV" secondAttribute="centerY" id="g7Z-QJ-4Q4"/>
+                            <constraint firstItem="Nib-3K-EFO" firstAttribute="centerX" secondItem="jze-i0-iGV" secondAttribute="centerX" id="mAC-BR-1c8"/>
+                            <constraint firstItem="qa1-M4-F5Y" firstAttribute="top" secondItem="71q-fy-j4q" secondAttribute="top" id="wNf-dE-u5K"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Bluetooth" image="Bluetooth" selectedImage="Bluetooth" id="daZ-O4-9m2"/>

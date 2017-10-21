@@ -67,11 +67,11 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
             var intmsg = Int(sender.midPointValue)
             switch intmsg {
             case 0..<10:
-                msg = "00"+String(intmsg)+"1"
+                msg = "00"+String(intmsg)+"22"
             case 10..<100:
-                msg = "0"+String(intmsg)+"1"
+                msg = "0"+String(intmsg)+"22"
             default:
-                msg = String(intmsg)+"1"
+                msg = String(intmsg)+"22"
             }
             msgLable.text = msg
             serial.sendMessageToDevice(msg)
@@ -361,12 +361,7 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         default:
             sy = String(y)
         }
-        var recTime = recLinks*60+recRechts
-        var StringRecTime = String(recTime)
-        if recTime < 10{
-            StringRecTime = "0"+String(recTime)
-        }
-        var msg = sx+sy+StringRecTime+"0"
+        var msg = sx+sy+"11"
         msgLable.text = msg
         serial.sendMessageToDevice(msg)
         
@@ -393,7 +388,7 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         default:
             sy = String(y)
         }
-        var msg = sx+sy+"3"
+        var msg = sx+sy+"33"
         msgLable.text = msg
         serial.sendMessageToDevice(msg)
         
@@ -468,15 +463,15 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     @IBOutlet weak var akkuAnzeige: UIProgressView!
     
     func akkuCheck(){
-        serial.sendMessageToDevice("77777777")
+        serial.sendMessageToDevice("77")
         switch receiveMessage{
-        case "100":
+        case "A":
             akkuAnzeige(kategorie: 1)
-        case "75":
+        case "B":
             akkuAnzeige(kategorie: 2)
-        case "50":
+        case "C":
             akkuAnzeige(kategorie: 3)
-        case "25":
+        case "D":
             akkuAnzeige(kategorie: 4)
         default:
             let x = 0
