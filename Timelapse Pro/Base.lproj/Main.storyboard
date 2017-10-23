@@ -492,7 +492,7 @@
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jze-i0-iGV">
-                                <rect key="frame" x="0.0" y="76" width="375" height="515"/>
+                                <rect key="frame" x="0.0" y="90" width="375" height="487"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -531,6 +531,7 @@
                                                 <constraint firstItem="uoH-xr-Ptw" firstAttribute="centerY" secondItem="GVR-gO-e3J" secondAttribute="centerY" id="y5O-0X-ceN"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -544,7 +545,7 @@
                             <constraint firstItem="qa1-M4-F5Y" firstAttribute="leading" secondItem="jze-i0-iGV" secondAttribute="leading" id="1ec-jG-HLL"/>
                             <constraint firstItem="jze-i0-iGV" firstAttribute="centerX" secondItem="71q-fy-j4q" secondAttribute="centerX" id="87F-Fd-vf0"/>
                             <constraint firstItem="jze-i0-iGV" firstAttribute="width" secondItem="71q-fy-j4q" secondAttribute="width" id="BHD-uV-mYP"/>
-                            <constraint firstItem="jze-i0-iGV" firstAttribute="top" secondItem="Nib-3K-EFO" secondAttribute="bottom" constant="16" id="CuM-1t-as9"/>
+                            <constraint firstItem="jze-i0-iGV" firstAttribute="top" secondItem="Nib-3K-EFO" secondAttribute="bottom" constant="30" id="CuM-1t-as9"/>
                             <constraint firstItem="Nib-3K-EFO" firstAttribute="centerX" secondItem="qa1-M4-F5Y" secondAttribute="centerX" id="DGW-If-07Q"/>
                             <constraint firstItem="qa1-M4-F5Y" firstAttribute="centerY" secondItem="jze-i0-iGV" secondAttribute="centerY" id="JGM-2z-jTk"/>
                             <constraint firstItem="Nib-3K-EFO" firstAttribute="top" secondItem="lub-VA-Pvj" secondAttribute="bottom" constant="8" symbolic="YES" id="ajV-U9-Tc4"/>
