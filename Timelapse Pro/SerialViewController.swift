@@ -239,12 +239,52 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         adjustRechts.text = String(Int(sender.value))+"s"
         playRechts = ((Int)(sender.value))
         updateText(links: playLinks, rechts: ((Int)(sender.value)), kürzel1: "m", kürzel2: "s", label: playTimeLabel)
+        switch intLinks {
+        case 0:
+            intervaltimetosend = "00"
+        case 0..<10:
+            intervaltimetosend = "0" + String(intLinks)
+        case 10..<100:
+            intervaltimetosend = String(intLinks)
+        default:
+            intervaltimetosend = "00"
+        }
+        switch intRechts {
+        case 0:
+            intervaltimetosend += "00"
+        case 0..<10:
+            intervaltimetosend += "0" + String(intRechts)
+        case 10..<100:
+            intervaltimetosend += String(intRechts)
+        default:
+            intervaltimetosend += "00"
+        }
     }
     @IBAction func playSliderLinks(_ sender: UISlider) {
         adjustLinks.text = String(Int(sender.value))+"m"
         playLinks = ((Int)(sender.value))
         updateText(links: ((Int)(sender.value)), rechts: playRechts, kürzel1: "m", kürzel2: "s", label: playTimeLabel)
         updateInt()
+        switch intLinks {
+        case 0:
+            intervaltimetosend = "00"
+        case 0..<10:
+            intervaltimetosend = "0" + String(intLinks)
+        case 10..<100:
+            intervaltimetosend = String(intLinks)
+        default:
+            intervaltimetosend = "00"
+        }
+        switch intRechts {
+        case 0:
+            intervaltimetosend += "00"
+        case 0..<10:
+            intervaltimetosend += "0" + String(intRechts)
+        case 10..<100:
+            intervaltimetosend += String(intRechts)
+        default:
+            intervaltimetosend += "00"
+        }
     }
     
     
@@ -311,6 +351,26 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         intRechts = ((Int)(sender.value))
         updateText(links: intLinks, rechts: ((Int)(sender.value)), kürzel1: "m", kürzel2: "s", label: intervalLabel)
         updatePlay()
+        switch intLinks {
+        case 0:
+            intervaltimetosend = "00"
+        case 0..<10:
+            intervaltimetosend = "0" + String(intLinks)
+        case 10..<100:
+            intervaltimetosend = String(intLinks)
+        default:
+            intervaltimetosend = "00"
+        }
+        switch intRechts {
+        case 0:
+            intervaltimetosend += "00"
+        case 0..<10:
+            intervaltimetosend += "0" + String(intRechts)
+        case 10..<100:
+            intervaltimetosend += String(intRechts)
+        default:
+            intervaltimetosend += "00"
+        }
     }
     
     @IBAction func intSliderLinks(_ sender: UISlider) {
@@ -318,6 +378,26 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         intLinks = ((Int)(sender.value))
         updateText(links: ((Int)(sender.value)), rechts: recRechts, kürzel1: "m", kürzel2: "s", label: intervalLabel)
         updatePlay()
+        switch intLinks {
+        case 0:
+            intervaltimetosend = "00"
+        case 0..<10:
+            intervaltimetosend = "0" + String(intLinks)
+        case 10..<100:
+            intervaltimetosend = String(intLinks)
+        default:
+            intervaltimetosend = "00"
+        }
+        switch intRechts {
+        case 0:
+            intervaltimetosend += "00"
+        case 0..<10:
+            intervaltimetosend += "0" + String(intRechts)
+        case 10..<100:
+            intervaltimetosend += String(intRechts)
+        default:
+            intervaltimetosend += "00"
+        }
     }
     
     //**************************************************************
@@ -341,6 +421,7 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     @IBOutlet weak var msgLable: UILabel!
     
     @IBAction func start(_ sender: Any) {
+        sendintrec()
         var x = Int (degreeslider.startPointValue)
         var sx = "String"
         var y = Int (degreeslider.endPointValue)
@@ -413,10 +494,31 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
             label.text = String(links)+kürzel1+String(rechts)+kürzel2
         }
     }
-    
+    var rectimetosend = "0215"
+    var intervaltimetosend = "0007"
     func updatePlay (){
         var fps = 30
         var recInSec = Double(((recLinks * 60 + recRechts) * 60))
+        switch recLinks {
+        case 0:
+            rectimetosend = "00"
+        case 1..<10:
+            rectimetosend = "0" + String(recLinks)
+        case 10..<100:
+            rectimetosend = String(recLinks)
+        default:
+            rectimetosend = "00"
+        }
+        switch recRechts {
+        case 0:
+            rectimetosend += "00"
+        case 1..<10:
+            rectimetosend += "0" + String(recRechts)
+        case 10..<100:
+            rectimetosend += String(recRechts)
+        default:
+            rectimetosend += "00"
+        }
         var intInSec = Double(((intLinks * 60 + intRechts) * fps))
         var updatePlay = recInSec / intInSec
         if (updatePlay > 1.2){
@@ -434,6 +536,26 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     func updateInt (){
         var fps = 30
         var recInSec = Double(((recLinks * 60 + recRechts) * 60))
+        switch recLinks {
+        case 0:
+            rectimetosend = "00"
+        case 1..<10:
+            rectimetosend = "0" + String(recLinks)
+        case 10..<100:
+            rectimetosend = String(recLinks)
+        default:
+            rectimetosend = "00"
+        }
+        switch recRechts {
+        case 0:
+            rectimetosend += "00"
+        case 1..<10:
+            rectimetosend += "0" + String(recRechts)
+        case 10..<100:
+            rectimetosend += String(recRechts)
+        default:
+            rectimetosend += "00"
+        }
         var playInSec = Double(((playLinks * 60 + playRechts) * fps))
         var updateInt = recInSec / playInSec
         if (updateInt > 1.2){
@@ -448,6 +570,14 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         }
     }
     
+    func sendintrec() {
+        let msg = rectimetosend + "44"
+        msgLable.text = msg
+        serial.sendMessageToDevice(msg)
+        let msg1 = intervaltimetosend + "55"
+        msgLable.text = msg1
+        serial.sendMessageToDevice(msg1)
+    }
     
     //**************************************************************
     
@@ -457,6 +587,7 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         recTime.setTitleColor(UIColor.white, for: .normal)
         playTime.setTitleColor(UIColor.white, for: .normal)
         interval.setTitleColor(UIColor.white, for: .normal)
+        sendintrec() //Intervall und Recordtime beim Schließen an Gerät senden
     }
     
     //***********************Akku stand zeigen***************
