@@ -12,6 +12,8 @@ import CoreBluetooth
 final class ScannerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, BluetoothSerialDelegate {
 
 //MARK: IBOutlets
+
+
     
     @IBOutlet weak var tryAgainButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!

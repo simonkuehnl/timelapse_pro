@@ -39,7 +39,6 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         cameraPosition.midThumbImage = UIImage(named: "Foto")
         serial = BluetoothSerial(delegate: self)
         
-        
         NotificationCenter.default.addObserver(self, selector: #selector(SerialViewController.reloadView), name: NSNotification.Name(rawValue: "reloadStartViewController"), object: nil)
         
         
@@ -414,6 +413,69 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     
     //**************************************************************
     
+    @IBAction func Retry(_ sender: UIButton) {
+    }
+    
+    //************** Drehrichtung einstellen************************
+    var turn = 0
+    
+    @IBAction func rotation(_ sender: UIButton) {
+        if (sender.currentImage == #imageLiteral(resourceName: "rotation right")){
+            sender.setImage(#imageLiteral(resourceName: "rotation left"), for: .normal)
+            msgLable.text = "88"
+            serial.sendMessageToDevice("88")
+            let x = degreeslider.startPointValue
+            let y = degreeslider.endPointValue
+            let f1 = degreeslider.startThumbTintColor
+            let f2 = degreeslider.startThumbStrokeColor
+            let f3 = degreeslider.startThumbStrokeHighlightedColor
+            let f4 = degreeslider.endThumbTintColor
+            let f5 = degreeslider.endThumbStrokeColor
+            let f6 = degreeslider.endThumbStrokeHighlightedColor
+            degreeslider.startPointValue = y
+            degreeslider.endPointValue = x
+            degreeslider.startThumbTintColor = f4
+            degreeslider.startThumbStrokeColor = f5
+            degreeslider.startThumbStrokeHighlightedColor = f6
+            degreeslider.endThumbTintColor = f1
+            degreeslider.endThumbStrokeColor = f2
+            degreeslider.endThumbStrokeHighlightedColor = f3
+            if degreeslider.startPointValue > degreeslider.endPointValue{
+                degreeView.text = String(Int(360-degreeslider.startPointValue+degreeslider.endPointValue))
+            }else{
+                degreeView.text = String(Int(degreeslider.endPointValue-degreeslider.startPointValue))
+            }
+            turn = 1
+            
+        }
+        else{
+            sender.setImage(#imageLiteral(resourceName: "rotation right"), for: .normal)
+            msgLable.text = "99"
+            serial.sendMessageToDevice("99")
+            let x = degreeslider.startPointValue
+            let y = degreeslider.endPointValue
+            let f1 = degreeslider.startThumbTintColor
+            let f2 = degreeslider.startThumbStrokeColor
+            let f3 = degreeslider.startThumbStrokeHighlightedColor
+            let f4 = degreeslider.endThumbTintColor
+            let f5 = degreeslider.endThumbStrokeColor
+            let f6 = degreeslider.endThumbStrokeHighlightedColor
+            degreeslider.startPointValue = y
+            degreeslider.endPointValue = x
+            degreeslider.startThumbTintColor = f4
+            degreeslider.startThumbStrokeColor = f5
+            degreeslider.startThumbStrokeHighlightedColor = f6
+            degreeslider.endThumbTintColor = f1
+            degreeslider.endThumbStrokeColor = f2
+            degreeslider.endThumbStrokeHighlightedColor = f3
+            if degreeslider.startPointValue > degreeslider.endPointValue{
+                degreeView.text = String(Int(360-degreeslider.startPointValue+degreeslider.endPointValue))
+            }else{
+                degreeView.text = String(Int(degreeslider.endPointValue-degreeslider.startPointValue))
+            }
+            turn = 0
+        }
+    }
     
     
     //********************* Start und Vorschau *********************
@@ -442,7 +504,13 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         default:
             sy = String(y)
         }
-        var msg = sx+sy+"11"
+        var msg = "String"
+        if(turn == 1){
+            msg = sy+sx+"11"
+        }
+        if(turn == 0){
+            msg = sx+sy+"11"
+        }
         msgLable.text = msg
         serial.sendMessageToDevice(msg)
         
@@ -469,7 +537,13 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         default:
             sy = String(y)
         }
-        var msg = sx+sy+"33"
+        var msg = "String"
+        if(turn == 1){
+            msg = sy+sx+"33"
+        }
+        if(turn == 0){
+            msg = sx+sy+"33"
+        }
         msgLable.text = msg
         serial.sendMessageToDevice(msg)
         
