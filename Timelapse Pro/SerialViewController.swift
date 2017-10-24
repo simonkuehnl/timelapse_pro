@@ -422,8 +422,8 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     @IBAction func rotation(_ sender: UIButton) {
         if (sender.currentImage == #imageLiteral(resourceName: "rotation right")){
             sender.setImage(#imageLiteral(resourceName: "rotation left"), for: .normal)
-            msgLable.text = "88"
-            serial.sendMessageToDevice("88")
+            msgLable.text = "99"
+            serial.sendMessageToDevice("99")
             let x = degreeslider.startPointValue
             let y = degreeslider.endPointValue
             let f1 = degreeslider.startThumbTintColor
@@ -450,8 +450,8 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         }
         else{
             sender.setImage(#imageLiteral(resourceName: "rotation right"), for: .normal)
-            msgLable.text = "99"
-            serial.sendMessageToDevice("99")
+            msgLable.text = "88"
+            serial.sendMessageToDevice("88")
             let x = degreeslider.startPointValue
             let y = degreeslider.endPointValue
             let f1 = degreeslider.startThumbTintColor
