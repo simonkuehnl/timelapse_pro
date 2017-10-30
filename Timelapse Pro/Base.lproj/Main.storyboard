@@ -547,6 +547,12 @@
                                     <outlet property="delegate" destination="l2A-Ol-NDR" id="bMW-Vc-DQj"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SgL-ys-efP">
+                                <rect key="frame" x="287" y="27" width="72" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Try Again"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -577,7 +583,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="jze-i0-iGV" id="dOQ-EX-2Bj"/>
-                        <outlet property="tryAgainButton" destination="b6I-0s-Ax9" id="1ih-gK-RFT"/>
+                        <outlet property="tryAgainButton" destination="SgL-ys-efP" id="HIy-oy-cWI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gzy-VZ-b7p" userLabel="First Responder" sceneMemberID="firstResponder"/>

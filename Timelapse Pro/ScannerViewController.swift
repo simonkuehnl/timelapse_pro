@@ -14,8 +14,8 @@ final class ScannerViewController: UIViewController, UITableViewDataSource, UITa
 //MARK: IBOutlets
 
 
-    
-    @IBOutlet weak var tryAgainButton: UIBarButtonItem!
+    @IBOutlet weak var tryAgainButton: UIButton!
+
     @IBOutlet weak var tableView: UITableView!
     
     
