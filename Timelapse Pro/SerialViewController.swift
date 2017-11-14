@@ -482,7 +482,7 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     
     @IBOutlet weak var msgLable: UILabel!
     
-    @IBAction func start(_ sender: Any) {
+    @IBAction func start(_ sender: UIButton) {
         sendintrec()
         var x = Int (degreeslider.startPointValue)
         var sx = "String"
@@ -513,10 +513,10 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         }
         msgLable.text = msg
         serial.sendMessageToDevice(msg)
-        
+        sender.setBackgroundImage(#imageLiteral(resourceName: "stop"), for: .normal)
     }
     
-    @IBAction func vorschau(_ sender: Any) {
+    @IBAction func vorschau(_ sender: UIButton) {
         var x = Int (degreeslider.startPointValue)
         var sx = "String"
         var y = Int (degreeslider.endPointValue)
@@ -546,7 +546,7 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         }
         msgLable.text = msg
         serial.sendMessageToDevice(msg)
-        
+        sender.setBackgroundImage(#imageLiteral(resourceName: "prev in progress"), for: .normal)
         
     }
     

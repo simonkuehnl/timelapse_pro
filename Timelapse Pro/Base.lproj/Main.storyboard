@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -54,20 +54,18 @@
                                     <action selector="rotation:" destination="zBl-b2-NpZ" eventType="touchUpInside" id="sE5-LW-1d8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOe-0E-wLi">
-                                <rect key="frame" x="244" y="569" width="89" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOe-0E-wLi">
+                                <rect key="frame" x="272" y="529" width="64" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="Vorschau"/>
+                                <state key="normal" backgroundImage="start prev"/>
                                 <connections>
                                     <action selector="vorschau:" destination="zBl-b2-NpZ" eventType="touchUpInside" id="uMt-Gs-w9k"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGW-ud-U3n">
-                                <rect key="frame" x="49" y="569" width="86" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGW-ud-U3n">
+                                <rect key="frame" x="61" y="529" width="64" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="Start"/>
+                                <state key="normal" backgroundImage="start"/>
                                 <connections>
                                     <action selector="start:" destination="zBl-b2-NpZ" eventType="touchUpInside" id="epe-iF-Km4"/>
                                 </connections>
@@ -599,7 +597,9 @@
         <image name="Timelapse" width="24" height="24"/>
         <image name="background" width="750" height="1334"/>
         <image name="background2" width="166" height="240"/>
-        <image name="rotation right" width="50" height="50"/>
+        <image name="rotation right" width="48" height="48"/>
+        <image name="start" width="48" height="48"/>
+        <image name="start prev" width="48" height="48"/>
         <image name="time_indicators" width="301" height="300"/>
     </resources>
 </document>
