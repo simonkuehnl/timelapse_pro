@@ -160,11 +160,6 @@
                                     <action selector="degreeslider:" destination="zBl-b2-NpZ" eventType="valueChanged" id="e0y-ii-n8U"/>
                                 </connections>
                             </view>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="T9T-YP-HUc">
-                                <rect key="frame" x="309" y="43.5" width="57" height="2.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="progressTintColor" red="0.0" green="0.75859374999999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Timelapse Pro" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75f-hM-yiZ">
                                 <rect key="frame" x="104" y="28" width="167" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -373,6 +368,10 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="batterie 100" translatesAutoresizingMaskIntoConstraints="NO" id="0yJ-fj-iSO">
+                                <rect key="frame" x="310" y="28" width="40" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -381,7 +380,7 @@
                         <outlet property="adjustLinks" destination="LT7-eo-xcr" id="QzH-51-5Hd"/>
                         <outlet property="adjustRechts" destination="J3x-Kr-YHP" id="adP-R3-dhO"/>
                         <outlet property="adjustments" destination="GPx-rb-L2g" id="z1S-qz-U1d"/>
-                        <outlet property="akkuAnzeige" destination="T9T-YP-HUc" id="K0x-0e-c2y"/>
+                        <outlet property="akku" destination="0yJ-fj-iSO" id="jrg-4A-jb6"/>
                         <outlet property="cameraPosition" destination="85T-oX-vj8" id="RbS-oY-sIj"/>
                         <outlet property="degreeView" destination="RUP-ue-7Kl" id="JKE-FE-ABU"/>
                         <outlet property="degreeslider" destination="EbL-Ht-fL4" id="96w-Vk-LfC"/>
@@ -597,6 +596,7 @@
         <image name="Timelapse" width="24" height="24"/>
         <image name="background" width="750" height="1334"/>
         <image name="background2" width="166" height="240"/>
+        <image name="batterie 100" width="24" height="24"/>
         <image name="rotation right" width="48" height="48"/>
         <image name="start" width="48" height="48"/>
         <image name="start prev" width="48" height="48"/>

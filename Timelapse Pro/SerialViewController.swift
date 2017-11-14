@@ -51,12 +51,6 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     }
     
     
-    
-    
-    
-    
-    
-    
     @IBOutlet weak var cameraPosition: MidPointCircularSlider!
     var receiveMessage = ""
     
@@ -665,7 +659,8 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     }
     
     //***********************Akku stand zeigen***************
-    @IBOutlet weak var akkuAnzeige: UIProgressView!
+
+    @IBOutlet weak var akku: UIImageView!
     
     func akkuCheck(){
         serial.sendMessageToDevice("77")
@@ -679,25 +674,27 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         case "D":
             akkuAnzeige(kategorie: 4)
         default:
-            let x = 0
+            akkuAnzeige(kategorie: 5)
         }
     }
     
     func akkuAnzeige(kategorie: Int){
         
-        switch kategorie{
-        case 4:
-            akkuAnzeige.progress = 0.2
-            akkuAnzeige.progressTintColor = UIColor.red
-        case 3:
-            akkuAnzeige.progress = 0.5
-            akkuAnzeige.progressTintColor = UIColor.green
+       switch kategorie{
+        case 1:
+            akku.isHidden = false
+            akku.image = #imageLiteral(resourceName: "batterie 100")
         case 2:
-            akkuAnzeige.progress = 0.7
-            akkuAnzeige.progressTintColor = UIColor.green
+            akku.isHidden = false
+            akku.image = #imageLiteral(resourceName: "batterie 75")
+        case 3:
+            akku.isHidden = false
+            akku.image = #imageLiteral(resourceName: "batterie 50")
+        case 4:
+            akku.isHidden = false
+            akku.image = #imageLiteral(resourceName: "batterie 25")
         default:
-            akkuAnzeige.progress = 1.0
-            akkuAnzeige.progressTintColor = UIColor.green
+            akku.isHidden = true
         }
     }
     
