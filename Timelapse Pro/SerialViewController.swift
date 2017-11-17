@@ -40,8 +40,10 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         serial = BluetoothSerial(delegate: self)
         
         NotificationCenter.default.addObserver(self, selector: #selector(SerialViewController.reloadView), name: NSNotification.Name(rawValue: "reloadStartViewController"), object: nil)
-        
-        
+        degreeslider.minimumValue = 0
+        degreeslider.maximumValue = 360
+        degreeslider.endPointValue = 180.0
+        setColor(180, degreeslider)
         // UI White
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -85,16 +87,39 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     @IBOutlet weak var degreeView: UILabel!
     @IBOutlet weak var degreeslider: RangeCircularSlider!
     @IBAction func degreeslider(_ sender: RangeCircularSlider) {
-        sender.minimumValue = 0
-        sender.maximumValue = 360
+        var text: Int
         
         if sender.startPointValue > sender.endPointValue{
-            degreeView.text = String(Int(360-sender.startPointValue+sender.endPointValue))
+            text = Int(360-sender.startPointValue+sender.endPointValue)
+            setColor(text, sender)
+            degreeView.text = String(text)
         }else{
-            degreeView.text = String(Int(sender.endPointValue-sender.startPointValue))
+            text = Int(sender.endPointValue-sender.startPointValue)
+            setColor(text, sender)
+            degreeView.text = String(text)
         }
+        
     }
     
+    func setColor(_ value: Int, _ sender: RangeCircularSlider){
+        let null = UIColor.blue
+        let fuenfzig = UIColor.green
+        let einhundertachtzig = UIColor.orange
+        let zweihundertsiebzig = UIColor.red
+        
+        switch value {
+        case 0..<50:
+            sender.trackFillColor = null
+        case 50..<180:
+            sender.trackFillColor = fuenfzig
+        case 180..<270:
+            sender.trackFillColor = einhundertachtzig
+        case 270..<360:
+            sender.trackFillColor = zweihundertsiebzig
+        default:
+            var x = 0
+        }
+    }
     //**************************************************************
     
     

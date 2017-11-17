@@ -81,6 +81,10 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="time_indicators" highlightedImage="time_indicators" translatesAutoresizingMaskIntoConstraints="NO" id="M7z-d3-Hcd">
+                                        <rect key="frame" x="78" y="39" width="218" height="218"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="85T-oX-vj8" customClass="MidPointCircularSlider" customModule="HGCircularSlider">
                                         <rect key="frame" x="96" y="58" width="182" height="181"/>
                                         <autoresizingMask key="autoresizingMask"/>
@@ -109,10 +113,6 @@
                                             <action selector="cameraPosition:" destination="zBl-b2-NpZ" eventType="valueChanged" id="GQ8-Li-jex"/>
                                         </connections>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="time_indicators" highlightedImage="time_indicators" translatesAutoresizingMaskIntoConstraints="NO" id="M7z-d3-Hcd">
-                                        <rect key="frame" x="78" y="39" width="218" height="218"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
