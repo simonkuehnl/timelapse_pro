@@ -102,23 +102,47 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     }
     
     func setColor(_ value: Int, _ sender: RangeCircularSlider){
-        let null = UIColor.blue
-        let fuenfzig = UIColor.green
-        let einhundertachtzig = UIColor.orange
-        let zweihundertsiebzig = UIColor.red
-        
-        switch value {
-        case 0..<50:
-            sender.trackFillColor = null
-        case 50..<180:
-            sender.trackFillColor = fuenfzig
-        case 180..<270:
-            sender.trackFillColor = einhundertachtzig
-        case 270..<360:
-            sender.trackFillColor = zweihundertsiebzig
-        default:
-            var x = 0
+        var newValue = value
+        if ( value % 2 != 0){
+            newValue = value - 1
         }
+        newValue = newValue / 2
+        switch newValue {
+        case 0..<52:
+            var red = 0 + newValue
+            var x = Float(red)
+            setSliderColor(UIColor( red: CGFloat(x/255.0),
+                                    green: CGFloat(255/255.0),
+                                    blue: CGFloat(153/255.0),
+                                    alpha: CGFloat(1.0) ), sender)
+        case 52..<119:
+            var blue = 153 + (newValue - 51)
+            var x = Float(blue)
+            setSliderColor(UIColor( red: CGFloat(51/255.0),
+                                    green: CGFloat(255/255.0),
+                                    blue: CGFloat(x/255.0),
+                                    alpha: CGFloat(1.0) ), sender)
+        case 119..<134:
+            var green = 255 - (newValue - 118)
+            var x = Float(green)
+            setSliderColor(UIColor( red: CGFloat(51/255.0),
+                                    green: CGFloat(x/255.0),
+                                    blue: CGFloat(220/255.0),
+                                    alpha: CGFloat(1.0) ),sender)
+        default:
+            var red = 51 + (newValue - 133)
+            var x = Float(red)
+            setSliderColor(UIColor( red: CGFloat(x/255.0),
+                                    green: CGFloat(240/255.0),
+                                    blue: CGFloat(220/255.0),
+                                    alpha: CGFloat(1.0) ), sender)
+        }
+    }
+    
+    func setSliderColor(_ color: UIColor, _ sender: RangeCircularSlider){
+        sender.trackFillColor = color
+        sender.endThumbTintColor = color
+        sender.endThumbStrokeHighlightedColor = color
     }
     //**************************************************************
     
