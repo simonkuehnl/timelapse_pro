@@ -122,11 +122,19 @@ final class ScannerViewController: UIViewController, UITableViewDataSource, UITa
         // the user has selected a peripheral, so stop scanning and proceed to the next view
         serial.stopScan()
         selectedPeripheral = peripherals[(indexPath as NSIndexPath).row].peripheral
+        if (title=="Connected"){
+            let hud = MBProgressHUD.showAdded(to: view, animated: true)
+            hud?.mode = MBProgressHUDMode.text
+            hud?.labelText = "Already Connected"
+            hud?.hide(true, afterDelay: 2)
+        }
+        else{
         serial.connectToPeripheral(selectedPeripheral!)
         progressHUD = MBProgressHUD.showAdded(to: view, animated: true)
         progressHUD!.labelText = "Connecting"
         
         Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(ScannerViewController.connectTimeOut), userInfo: nil, repeats: false)
+        }
     }
     
     

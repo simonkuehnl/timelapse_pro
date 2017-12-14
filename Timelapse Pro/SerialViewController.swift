@@ -142,7 +142,7 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     func setSliderColor(_ color: UIColor){
         degreeslider.trackFillColor = color
         degreeslider.endThumbTintColor = color
-        degreeslider.endThumbStrokeHighlightedColor = color
+        degreeslider.startThumbTintColor = color
     }
     //**************************************************************
     
