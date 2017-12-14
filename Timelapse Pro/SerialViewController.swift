@@ -43,7 +43,7 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         degreeslider.minimumValue = 0
         degreeslider.maximumValue = 360
         degreeslider.endPointValue = 180.0
-        setColor(180, degreeslider)
+        setColor(180)
         // UI White
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -91,17 +91,17 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         
         if sender.startPointValue > sender.endPointValue{
             text = Int(360-sender.startPointValue+sender.endPointValue)
-            setColor(text, sender)
+            setColor(text)
             degreeView.text = String(text)
         }else{
             text = Int(sender.endPointValue-sender.startPointValue)
-            setColor(text, sender)
+            setColor(text)
             degreeView.text = String(text)
         }
         
     }
     
-    func setColor(_ value: Int, _ sender: RangeCircularSlider){
+    func setColor(_ value: Int){
         var newValue = value
         if ( value % 2 != 0){
             newValue = value - 1
@@ -114,35 +114,35 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
             setSliderColor(UIColor( red: CGFloat(x/255.0),
                                     green: CGFloat(255/255.0),
                                     blue: CGFloat(153/255.0),
-                                    alpha: CGFloat(1.0) ), sender)
+                                    alpha: CGFloat(1.0) ))
         case 52..<119:
             var blue = 153 + (newValue - 51)
             var x = Float(blue)
             setSliderColor(UIColor( red: CGFloat(51/255.0),
                                     green: CGFloat(255/255.0),
                                     blue: CGFloat(x/255.0),
-                                    alpha: CGFloat(1.0) ), sender)
+                                    alpha: CGFloat(1.0) ))
         case 119..<134:
             var green = 255 - (newValue - 118)
             var x = Float(green)
             setSliderColor(UIColor( red: CGFloat(51/255.0),
                                     green: CGFloat(x/255.0),
                                     blue: CGFloat(220/255.0),
-                                    alpha: CGFloat(1.0) ),sender)
+                                    alpha: CGFloat(1.0) ))
         default:
             var red = 51 + (newValue - 133)
             var x = Float(red)
             setSliderColor(UIColor( red: CGFloat(x/255.0),
                                     green: CGFloat(240/255.0),
                                     blue: CGFloat(220/255.0),
-                                    alpha: CGFloat(1.0) ), sender)
+                                    alpha: CGFloat(1.0) ))
         }
     }
     
-    func setSliderColor(_ color: UIColor, _ sender: RangeCircularSlider){
-        sender.trackFillColor = color
-        sender.endThumbTintColor = color
-        sender.endThumbStrokeHighlightedColor = color
+    func setSliderColor(_ color: UIColor){
+        degreeslider.trackFillColor = color
+        degreeslider.endThumbTintColor = color
+        degreeslider.endThumbStrokeHighlightedColor = color
     }
     //**************************************************************
     
@@ -484,9 +484,13 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
             degreeslider.endThumbStrokeColor = f2
             degreeslider.endThumbStrokeHighlightedColor = f3
             if degreeslider.startPointValue > degreeslider.endPointValue{
-                degreeView.text = String(Int(360-degreeslider.startPointValue+degreeslider.endPointValue))
+                var setToString = Int(360-degreeslider.startPointValue+degreeslider.endPointValue)
+                degreeView.text = String (setToString)
+                setColor(setToString)
             }else{
-                degreeView.text = String(Int(degreeslider.endPointValue-degreeslider.startPointValue))
+                var setToString = Int(degreeslider.endPointValue-degreeslider.startPointValue)
+                degreeView.text = String(setToString)
+                setColor(setToString)
             }
             turn = 1
             
@@ -512,9 +516,13 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
             degreeslider.endThumbStrokeColor = f2
             degreeslider.endThumbStrokeHighlightedColor = f3
             if degreeslider.startPointValue > degreeslider.endPointValue{
-                degreeView.text = String(Int(360-degreeslider.startPointValue+degreeslider.endPointValue))
+                var setToString = Int(360-degreeslider.startPointValue+degreeslider.endPointValue)
+                degreeView.text = String(setToString)
+                setColor(setToString)
             }else{
-                degreeView.text = String(Int(degreeslider.endPointValue-degreeslider.startPointValue))
+                var setToString = Int(degreeslider.endPointValue-degreeslider.startPointValue)
+                degreeView.text = String(setToString)
+                setColor(setToString)
             }
             turn = 0
         }

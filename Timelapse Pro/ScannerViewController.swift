@@ -65,7 +65,9 @@ final class ScannerViewController: UIViewController, UITableViewDataSource, UITa
         // timeout has occurred, stop scanning and give the user the option to try again
         serial.stopScan()
         tryAgainButton.isEnabled = true
-        title = "Done scanning"
+        if title == "Connected"{}
+        else{
+            title = "Done scanning"}
     }
     
     /// Should be called 10s after we've begun connecting
@@ -173,6 +175,7 @@ final class ScannerViewController: UIViewController, UITableViewDataSource, UITa
     func serialIsReady(_ peripheral: CBPeripheral) {
         if let hud = progressHUD {
             hud.hide(false)
+            title = "Connected"
         }
         
         NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadStartViewController"), object: self)
