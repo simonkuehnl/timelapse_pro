@@ -553,6 +553,15 @@
                                     <action selector="tryAgain:" destination="l2A-Ol-NDR" eventType="touchUpInside" id="CcF-9O-1b9"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ikj-gp-EKA">
+                                <rect key="frame" x="16" y="28" width="86" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Disconnnect"/>
+                                <connections>
+                                    <action selector="Disconnect:" destination="l2A-Ol-NDR" eventType="touchUpInside" id="XsX-Mw-Jbp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -582,6 +591,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="Disconnect" destination="ikj-gp-EKA" id="nca-Sp-nRX"/>
                         <outlet property="tableView" destination="jze-i0-iGV" id="dOQ-EX-2Bj"/>
                         <outlet property="tryAgainButton" destination="SgL-ys-efP" id="HIy-oy-cWI"/>
                     </connections>

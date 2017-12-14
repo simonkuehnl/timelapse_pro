@@ -18,6 +18,18 @@ final class ScannerViewController: UIViewController, UITableViewDataSource, UITa
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBAction func Disconnect(_ sender: Any) {
+        serial.disconnect()
+        title = "Bluetooth"
+        let hud = MBProgressHUD.showAdded(to: view, animated: true)
+        hud?.mode = MBProgressHUDMode.text
+        hud?.labelText = "Disconnected"
+        hud?.hide(true, afterDelay: 2)
+        Disconnect.isHidden=true
+    }
+    
+    @IBOutlet weak var Disconnect: UIButton!
+    
     
 //MARK: Variables
     
@@ -184,6 +196,8 @@ final class ScannerViewController: UIViewController, UITableViewDataSource, UITa
         if let hud = progressHUD {
             hud.hide(false)
             title = "Connected"
+            Disconnect.isHidden=false
+            
         }
         
         NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadStartViewController"), object: self)
