@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uye-fM-dNs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pJT-PN-EvK">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,58 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--LaunchScreenController-->
+        <scene sceneID="uT2-nI-b4M">
+            <objects>
+                <viewController title="LaunchScreenController" id="pJT-PN-EvK" customClass="LaunchScreenController" customModule="Timelapse_Pro" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SUr-BY-FDU"/>
+                        <viewControllerLayoutGuide type="bottom" id="NHW-9D-eCt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bTh-65-Pqa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="zZm-P0-HfH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="gaF-8b-F8Q"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qC-wN-Zfq">
+                                <rect key="frame" x="127" y="302" width="120" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="47"/>
+                                <color key="textColor" red="0.4232296646" green="0.89082109929999997" blue="0.67663723229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="76" translatesAutoresizingMaskIntoConstraints="NO" id="881-dr-OJm">
+                                <rect key="frame" x="37" y="183" width="300" height="300"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zZm-P0-HfH" firstAttribute="bottom" secondItem="NHW-9D-eCt" secondAttribute="top" id="HVv-Hk-5Qs"/>
+                            <constraint firstItem="zZm-P0-HfH" firstAttribute="top" secondItem="bTh-65-Pqa" secondAttribute="top" id="SKG-Ly-P7l"/>
+                            <constraint firstItem="zZm-P0-HfH" firstAttribute="leading" secondItem="bTh-65-Pqa" secondAttribute="leading" id="mwG-ps-Dqb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="LaunchScreenDial" destination="881-dr-OJm" id="K5W-7S-R7B"/>
+                        <outlet property="NumberLaunchScreen" destination="3qC-wN-Zfq" id="0K4-N1-R3g"/>
+                        <segue destination="uye-fM-dNs" kind="presentation" identifier="FirstSeg" modalTransitionStyle="crossDissolve" id="Vc2-J6-r9D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ssr-54-Kp0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2063.1999999999998" y="-743.47826086956525"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="vXp-Y1-zgP">
             <objects>
-                <tabBarController id="uye-fM-dNs" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" id="uye-fM-dNs" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="LgH-Ww-4J2"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" backgroundImage="TabbarBackground" id="MVP-VN-dy5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -33,7 +81,7 @@
         <!--Serial View Controller-->
         <scene sceneID="Ylh-7U-WwL">
             <objects>
-                <viewController id="zBl-b2-NpZ" userLabel="Serial View Controller" customClass="SerialViewController" customModule="Timelapse_Pro" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SerialViewController" title="SerialViewController" id="zBl-b2-NpZ" userLabel="Serial View Controller" customClass="SerialViewController" customModule="Timelapse_Pro" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="weW-8A-3ew"/>
                         <viewControllerLayoutGuide type="bottom" id="rKg-J5-cgL"/>
@@ -55,7 +103,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOe-0E-wLi">
-                                <rect key="frame" x="272" y="529" width="64" height="64"/>
+                                <rect key="frame" x="270" y="529" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="start prev"/>
                                 <connections>
@@ -63,7 +111,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGW-ud-U3n">
-                                <rect key="frame" x="61" y="529" width="64" height="64"/>
+                                <rect key="frame" x="50" y="529" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="start"/>
                                 <connections>
@@ -85,7 +133,7 @@
                                         <rect key="frame" x="78" y="39" width="218" height="218"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="85T-oX-vj8" customClass="MidPointCircularSlider" customModule="HGCircularSlider">
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="85T-oX-vj8" customClass="CircularSlider" customModule="HGCircularSlider">
                                         <rect key="frame" x="96" y="58" width="182" height="181"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -168,7 +216,7 @@
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1l-sP-eVr">
-                                <rect key="frame" x="234" y="517" width="125" height="20"/>
+                                <rect key="frame" x="235" y="503" width="125" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.96047378520000004" green="1" blue="0.99663103980000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -229,12 +277,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Msg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQ5-ho-qcL">
-                                <rect key="frame" x="21" y="517" width="125" height="20"/>
+                                <rect key="frame" x="15" y="503" width="125" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.97193862220000005" green="1" blue="0.98644698340000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="batterie 100" translatesAutoresizingMaskIntoConstraints="NO" id="0yJ-fj-iSO">
+                                <rect key="frame" x="310" y="28" width="40" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GPx-rb-L2g">
                                 <rect key="frame" x="0.0" y="125" width="375" height="542"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -368,10 +420,6 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="batterie 100" translatesAutoresizingMaskIntoConstraints="NO" id="0yJ-fj-iSO">
-                                <rect key="frame" x="310" y="28" width="40" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -381,7 +429,7 @@
                         <outlet property="adjustRechts" destination="J3x-Kr-YHP" id="adP-R3-dhO"/>
                         <outlet property="adjustments" destination="GPx-rb-L2g" id="z1S-qz-U1d"/>
                         <outlet property="akku" destination="0yJ-fj-iSO" id="jrg-4A-jb6"/>
-                        <outlet property="cameraPosition" destination="85T-oX-vj8" id="RbS-oY-sIj"/>
+                        <outlet property="cameraPosition" destination="85T-oX-vj8" id="kVM-Jh-V0s"/>
                         <outlet property="degreeView" destination="RUP-ue-7Kl" id="JKE-FE-ABU"/>
                         <outlet property="degreeslider" destination="EbL-Ht-fL4" id="96w-Vk-LfC"/>
                         <outlet property="intSliderLinks" destination="YVh-1g-PTi" id="pK3-bm-USL"/>
@@ -602,6 +650,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="76" width="1024" height="1024"/>
         <image name="Bluetooth" width="24" height="24"/>
         <image name="Presets" width="24" height="24"/>
         <image name="Settings" width="24" height="24"/>

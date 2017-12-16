@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		414C157D1FE53414008B2BDD /* LaunchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414C157C1FE53414008B2BDD /* LaunchScreenController.swift */; };
 		9C4BE413792EB7BF27E39B0B /* Pods_Timelapse_Pro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AD443555F04902BECA19BE0 /* Pods_Timelapse_Pro.framework */; };
 		B15812261F71A566008B81F2 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B15812251F71A566008B81F2 /* MBProgressHUD.m */; };
 		B15812291F71A669008B81F2 /* BluetoothSerial.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15812281F71A669008B81F2 /* BluetoothSerial.swift */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		1AD443555F04902BECA19BE0 /* Pods_Timelapse_Pro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Timelapse_Pro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C21DD8D46D7C5D8CC32B002 /* Pods-Timelapse Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Timelapse Pro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Timelapse Pro/Pods-Timelapse Pro.release.xcconfig"; sourceTree = "<group>"; };
+		414C157C1FE53414008B2BDD /* LaunchScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenController.swift; sourceTree = "<group>"; };
 		B15812241F71A566008B81F2 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		B15812251F71A566008B81F2 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		B15812271F71A574008B81F2 /* Timelapse Pro-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Timelapse Pro-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				B158122A1F71A699008B81F2 /* ScannerViewController.swift */,
 				B15812281F71A669008B81F2 /* BluetoothSerial.swift */,
 				B1C6953C1F7179D400A3EC32 /* Main.storyboard */,
+				414C157C1FE53414008B2BDD /* LaunchScreenController.swift */,
 				B15812241F71A566008B81F2 /* MBProgressHUD.h */,
 				B15812251F71A566008B81F2 /* MBProgressHUD.m */,
 				B1C6953F1F7179D400A3EC32 /* Assets.xcassets */,
@@ -230,6 +233,7 @@
 				B15812261F71A566008B81F2 /* MBProgressHUD.m in Sources */,
 				B15812291F71A669008B81F2 /* BluetoothSerial.swift in Sources */,
 				B158122B1F71A699008B81F2 /* ScannerViewController.swift in Sources */,
+				414C157D1FE53414008B2BDD /* LaunchScreenController.swift in Sources */,
 				B1C695391F7179D400A3EC32 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

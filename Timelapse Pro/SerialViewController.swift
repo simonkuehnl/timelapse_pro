@@ -36,7 +36,7 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         updateText(links: recLinks, rechts: recRechts, kürzel1: "h", kürzel2: "m", label: recTimeLabel)
         updateInt()
         updateText(links: playLinks, rechts: playRechts, kürzel1: "m", kürzel2: "s", label: playTimeLabel)
-        cameraPosition.midThumbImage = UIImage(named: "Foto")
+        cameraPosition.endThumbImage = UIImage(named: "Foto")
         serial = BluetoothSerial(delegate: self)
         
         NotificationCenter.default.addObserver(self, selector: #selector(SerialViewController.reloadView), name: NSNotification.Name(rawValue: "reloadStartViewController"), object: nil)
@@ -48,33 +48,33 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
-        
         akkuCheck()
     }
     
-    
-    @IBOutlet weak var cameraPosition: MidPointCircularSlider!
+    @IBOutlet weak var cameraPosition: CircularSlider!
     var receiveMessage = ""
     
-    @IBAction func cameraPosition(_ sender: MidPointCircularSlider) {
+    
+    
+    @IBAction func cameraPosition(_ sender: CircularSlider) {
+       
+        _ = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(sendCameraPostitionToDevice), userInfo: nil, repeats: false)
+    }
+    
+    func sendCameraPostitionToDevice(){
         var msg = ""
-        if receiveMessage != ""{
-            var intmsg = Int(sender.midPointValue)
-            switch intmsg {
-            case 0..<10:
-                msg = "00"+String(intmsg)+"22"
-            case 10..<100:
-                msg = "0"+String(intmsg)+"22"
-            default:
-                msg = String(intmsg)+"22"
-            }
-            msgLable.text = msg
-            serial.sendMessageToDevice(msg)
-            receiveMessage = ""
+        var intmsg = Int(cameraPosition.endPointValue)
+        switch intmsg {
+        case 0..<10:
+            msg = "00"+String(intmsg)+"22"
+        case 10..<100:
+            msg = "0"+String(intmsg)+"22"
+        default:
+            msg = String(intmsg)+"22"
         }
-        else{
-        }
-        
+        msgLable.text = msg
+        serial.sendMessageToDevice(msg)
+        receiveMessage = ""
     }
     
     
@@ -534,7 +534,7 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     @IBOutlet weak var msgLable: UILabel!
     
     @IBAction func start(_ sender: UIButton) {
-        sendintrec()
+        //sendintrec()
         var x = Int (degreeslider.startPointValue)
         var sx = "String"
         var y = Int (degreeslider.endPointValue)
@@ -598,7 +598,6 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         msgLable.text = msg
         serial.sendMessageToDevice(msg)
         sender.setBackgroundImage(#imageLiteral(resourceName: "prev in progress"), for: .normal)
-        
     }
     
     
@@ -721,35 +720,23 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     
     func akkuCheck(){
         serial.sendMessageToDevice("77")
-        switch receiveMessage{
-        case "A":
-            akkuAnzeige(kategorie: 1)
-        case "B":
-            akkuAnzeige(kategorie: 2)
-        case "C":
-            akkuAnzeige(kategorie: 3)
-        case "D":
-            akkuAnzeige(kategorie: 4)
-        default:
-            akkuAnzeige(kategorie: 5)
-        }
+       _ = Timer.scheduledTimer(timeInterval: 0.6, target: self, selector: #selector(akkuAnzeige), userInfo: nil, repeats: true)
     }
     
-    func akkuAnzeige(kategorie: Int){
-        
-       switch kategorie{
-        case 1:
+    func akkuAnzeige(){
+        switch receiveMessage{
+        case "A":
             akku.isHidden = false
             akku.image = #imageLiteral(resourceName: "batterie 100")
-        case 2:
+        case "B":
             akku.isHidden = false
-            akku.image = #imageLiteral(resourceName: "batterie 75")
-        case 3:
+            akku.image = #imageLiteral(resourceName: "batterie 100")
+        case "C":
             akku.isHidden = false
             akku.image = #imageLiteral(resourceName: "batterie 50")
-        case 4:
+        case "D":
             akku.isHidden = false
-            akku.image = #imageLiteral(resourceName: "batterie 25")
+            akku.image = #imageLiteral(resourceName: "batterie 50")
         default:
             akku.isHidden = true
         }

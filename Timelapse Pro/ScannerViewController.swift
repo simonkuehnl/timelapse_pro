@@ -192,13 +192,16 @@ final class ScannerViewController: UIViewController, UITableViewDataSource, UITa
 
     }
     
+    
     func serialIsReady(_ peripheral: CBPeripheral) {
         if let hud = progressHUD {
             hud.hide(false)
             title = "Connected"
             Disconnect.isHidden=false
-            
+            self.tabBarController?.selectedIndex = 0
         }
+        
+   
         
         NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadStartViewController"), object: self)
         dismiss(animated: true, completion: nil)
@@ -215,6 +218,9 @@ final class ScannerViewController: UIViewController, UITableViewDataSource, UITa
         }
     }
     
+    
+    
+
 
 //MARK: IBActions
     
