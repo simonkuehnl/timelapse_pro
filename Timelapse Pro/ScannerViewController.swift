@@ -193,6 +193,7 @@ final class ScannerViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     
+    
     func serialIsReady(_ peripheral: CBPeripheral) {
         if let hud = progressHUD {
             hud.hide(false)

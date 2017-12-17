@@ -48,11 +48,20 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
+        _ = Timer.scheduledTimer(timeInterval: 180.0, target: self, selector: #selector(akkuCheck), userInfo: nil, repeats: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         akkuCheck()
     }
     
     @IBOutlet weak var cameraPosition: CircularSlider!
-    var receiveMessage = ""
+    
+    var receiveMessage = ""{
+        willSet{
+            akkuAnzeige()
+        }
+    }
     
     
     
@@ -163,7 +172,6 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     @IBOutlet weak var recTimeLinks: UIButton!
     
     @IBAction func recTime(_ sender: UIButton) {
-        akkuCheck()
         playSliderLinks.isHidden = true
         playSliderRechts.isHidden = true
         playTimeLinks.isHidden = true
@@ -534,7 +542,6 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     @IBOutlet weak var msgLable: UILabel!
     
     @IBAction func start(_ sender: UIButton) {
-        //sendintrec()
         var x = Int (degreeslider.startPointValue)
         var sx = "String"
         var y = Int (degreeslider.endPointValue)
@@ -694,15 +701,22 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         }
     }
     
-    func sendintrec() {
+    func sendIntervallAndRecTime(){
+        sendRecTime()
+        _ = Timer.scheduledTimer(timeInterval: 0.6, target: self, selector: #selector(sendintervall), userInfo: nil, repeats: false)
+    }
+    
+    func sendRecTime() {
         let msg = rectimetosend + "44"
         msgLable.text = msg
         serial.sendMessageToDevice(msg)
+    }
+    
+    func sendintervall(){
         let msg1 = intervaltimetosend + "55"
         msgLable.text = msg1
         serial.sendMessageToDevice(msg1)
     }
-    
     //**************************************************************
     
     
@@ -711,7 +725,7 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         recTime.setTitleColor(UIColor.white, for: .normal)
         playTime.setTitleColor(UIColor.white, for: .normal)
         interval.setTitleColor(UIColor.white, for: .normal)
-        sendintrec() //Intervall und Recordtime beim Schließen an Gerät senden
+        sendIntervallAndRecTime() //Intervall und Recordtime beim Schließen an Gerät senden
     }
     
     //***********************Akku stand zeigen***************
@@ -720,25 +734,33 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     
     func akkuCheck(){
         serial.sendMessageToDevice("77")
-       _ = Timer.scheduledTimer(timeInterval: 0.6, target: self, selector: #selector(akkuAnzeige), userInfo: nil, repeats: true)
+       _ = Timer.scheduledTimer(timeInterval: 0.6, target: self, selector: #selector(akkuAnzeige), userInfo: nil, repeats: false)
     }
     
+    @IBOutlet weak var startbutton: UIButton!
+    
+    @IBOutlet weak var vorschaubutton: UIButton!
+    
     func akkuAnzeige(){
-        switch receiveMessage{
-        case "A":
+        switch receiveMessage.lowercased() as NSString{
+        case let x where x.range(of: "a").length != 0:
             akku.isHidden = false
             akku.image = #imageLiteral(resourceName: "batterie 100")
-        case "B":
+        case let x where x.range(of: "b").length != 0:
             akku.isHidden = false
-            akku.image = #imageLiteral(resourceName: "batterie 100")
-        case "C":
-            akku.isHidden = false
-            akku.image = #imageLiteral(resourceName: "batterie 50")
-        case "D":
+            akku.image = #imageLiteral(resourceName: "batterie 75")
+        case let x where x.range(of: "c").length != 0:
             akku.isHidden = false
             akku.image = #imageLiteral(resourceName: "batterie 50")
-        default:
-            akku.isHidden = true
+        case let x where x.range(of: "d").length != 0:
+            akku.isHidden = false
+            akku.image = #imageLiteral(resourceName: "batterie 25")
+        case let x where x.range(of: "zz").length != 0:
+            vorschaubutton.setBackgroundImage( #imageLiteral(resourceName: "start prev"), for: .normal)
+        case let x where x.range(of: "xx").length != 0:
+            startbutton.setBackgroundImage(#imageLiteral(resourceName: "start"), for: .normal)
+        default: break
+            
         }
     }
     
@@ -753,10 +775,12 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     
     @IBOutlet weak var test2lable: UILabel!
     
+    
     func serialDidReceiveString(_ message: String) {
         // add the received text to the textView, optionally with a line break at the end
         test2lable.text = message
-        receiveMessage = message
+        receiveMessage = String(message)
+        akkuAnzeige()
     }
     
     func reloadView() {

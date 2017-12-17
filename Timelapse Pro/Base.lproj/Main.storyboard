@@ -283,7 +283,7 @@
                                 <color key="textColor" red="0.97193862220000005" green="1" blue="0.98644698340000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="batterie 100" translatesAutoresizingMaskIntoConstraints="NO" id="0yJ-fj-iSO">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="batterie 100" translatesAutoresizingMaskIntoConstraints="NO" id="0yJ-fj-iSO">
                                 <rect key="frame" x="310" y="28" width="40" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -451,8 +451,10 @@
                         <outlet property="recTimeLabel" destination="zFr-M0-Cch" id="ojD-Bw-7JV"/>
                         <outlet property="recTimeLinks" destination="bZT-iO-Alb" id="TfD-mh-NNL"/>
                         <outlet property="recTimeRechts" destination="vJu-NZ-h8p" id="cSl-FQ-qUr"/>
+                        <outlet property="startbutton" destination="EGW-ud-U3n" id="7KN-BE-VKf"/>
                         <outlet property="test2lable" destination="P1l-sP-eVr" id="YTj-4c-I7Z"/>
                         <outlet property="text" destination="hYz-bG-Sp3" id="Gku-Ux-Z9U"/>
+                        <outlet property="vorschaubutton" destination="oOe-0E-wLi" id="Ypv-9l-WZo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zBn-fQ-GuY" userLabel="First Responder" sceneMemberID="firstResponder"/>
