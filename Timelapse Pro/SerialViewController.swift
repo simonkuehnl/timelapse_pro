@@ -11,6 +11,15 @@ import CoreBluetooth
 import QuartzCore
 import HGCircularSlider
 
+var recLinks = 2
+var recRechts = 15
+
+var playLinks = 0
+var playRechts = 40
+
+var intLinks = 0
+var intRechts = 27
+
 enum MessageOption: Int {
     case noLineEnding,
     newline,
@@ -53,6 +62,9 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     
     override func viewWillAppear(_ animated: Bool) {
         akkuCheck()
+        updatePresetRec()
+        updatePresetPlay()
+        updatePresetIntervall()
     }
     
     @IBOutlet weak var cameraPosition: CircularSlider!
@@ -60,9 +72,9 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     var receiveMessage = ""{
         willSet{
             akkuAnzeige()
+            
         }
     }
-    
     
     
     @IBAction func cameraPosition(_ sender: CircularSlider) {
@@ -159,8 +171,7 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     
     //********** zum anzeigen und justieren der REC TIME ***********
     
-    var recLinks = 2
-    var recRechts = 15
+
     @IBOutlet weak var adjustLinks: UILabel!
     @IBOutlet weak var adjustRechts: UILabel!
     
@@ -226,14 +237,17 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         updatePlay()
     }
     
+    func updatePresetRec(){
+        updateText(links: recLinks, rechts: recRechts, kürzel1: "h", kürzel2: "m", label: recTimeLabel)
+    }
+    
     //**************************************************************
     
     
     
     //********** zum anzeigen und justieren der PLAY TIME **********
     
-    var playLinks = 0
-    var playRechts = 40
+
     
     @IBOutlet weak var playTime: UIButton!
     @IBOutlet weak var playTimeLabel: UILabel!
@@ -337,6 +351,9 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         }
     }
     
+    func updatePresetPlay(){
+        updateText(links: playLinks, rechts: playRechts, kürzel1: "m", kürzel2: "s", label: playTimeLabel)
+    }
     
     //**************************************************************
     
@@ -344,8 +361,7 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     
     //********** zum anzeigen und justieren des INTERVALS **********
     
-    var intLinks = 0
-    var intRechts = 27
+
     
     @IBOutlet weak var interval: UIButton!
     @IBOutlet weak var intervalLabel: UILabel!
@@ -450,6 +466,9 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         }
     }
     
+    func updatePresetIntervall(){
+        updateText(links: intLinks, rechts: intRechts, kürzel1: "m", kürzel2: "s", label: intervalLabel)
+    }
     //**************************************************************
     
     
