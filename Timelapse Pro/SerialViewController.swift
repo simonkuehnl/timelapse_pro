@@ -560,7 +560,7 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     
     @IBOutlet weak var msgLable: UILabel!
     
-    @IBAction func start(_ sender: UIButton) {
+    func sendStartSignal(){
         var x = Int (degreeslider.startPointValue)
         var sx = "String"
         var y = Int (degreeslider.endPointValue)
@@ -590,7 +590,11 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         }
         msgLable.text = msg
         serial.sendMessageToDevice(msg)
-        sender.setBackgroundImage(#imageLiteral(resourceName: "stop"), for: .normal)
+        startbutton.setBackgroundImage(#imageLiteral(resourceName: "stop"), for: .normal)
+    }
+    
+    @IBAction func start(_ sender: UIButton) {
+        sendRecTime()
     }
     
     @IBAction func vorschau(_ sender: UIButton) {
@@ -720,18 +724,54 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         }
     }
     
-    func sendIntervallAndRecTime(){
-        sendRecTime()
-        _ = Timer.scheduledTimer(timeInterval: 0.6, target: self, selector: #selector(sendintervall), userInfo: nil, repeats: false)
-    }
     
     func sendRecTime() {
+        switch recLinks {
+        case 0:
+            rectimetosend = "00"
+        case 1..<10:
+            rectimetosend = "0" + String(recLinks)
+        case 10..<100:
+            rectimetosend = String(recLinks)
+        default:
+            rectimetosend = "00"
+        }
+        switch recRechts {
+        case 0:
+            rectimetosend += "00"
+        case 1..<10:
+            rectimetosend += "0" + String(recRechts)
+        case 10..<100:
+            rectimetosend += String(recRechts)
+        default:
+            rectimetosend += "00"
+        }
         let msg = rectimetosend + "44"
         msgLable.text = msg
         serial.sendMessageToDevice(msg)
     }
     
     func sendintervall(){
+        switch intLinks {
+        case 0:
+            intervaltimetosend = "00"
+        case 0..<10:
+            intervaltimetosend = "0" + String(intLinks)
+        case 10..<100:
+            intervaltimetosend = String(intLinks)
+        default:
+            intervaltimetosend = "00"
+        }
+        switch intRechts {
+        case 0:
+            intervaltimetosend += "00"
+        case 0..<10:
+            intervaltimetosend += "0" + String(intRechts)
+        case 10..<100:
+            intervaltimetosend += String(intRechts)
+        default:
+            intervaltimetosend += "00"
+        }
         let msg1 = intervaltimetosend + "55"
         msgLable.text = msg1
         serial.sendMessageToDevice(msg1)
@@ -744,7 +784,6 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         recTime.setTitleColor(UIColor.white, for: .normal)
         playTime.setTitleColor(UIColor.white, for: .normal)
         interval.setTitleColor(UIColor.white, for: .normal)
-        sendIntervallAndRecTime() //Intervall und Recordtime beim Schließen an Gerät senden
     }
     
     //***********************Akku stand zeigen***************
@@ -774,6 +813,10 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         case let x where x.range(of: "d").length != 0:
             akku.isHidden = false
             akku.image = #imageLiteral(resourceName: "batterie 25")
+        case let x where x.range(of: "r").length != 0:
+            sendintervall()
+        case let x where x.range(of: "i").length != 0:
+            _ = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(sendStartSignal), userInfo: nil, repeats: false)
         case let x where x.range(of: "zz").length != 0:
             vorschaubutton.setBackgroundImage( #imageLiteral(resourceName: "start prev"), for: .normal)
         case let x where x.range(of: "xx").length != 0:
