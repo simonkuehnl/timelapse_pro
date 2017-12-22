@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pJT-PN-EvK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pJT-PN-EvK">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -105,7 +105,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOe-0E-wLi">
                                 <rect key="frame" x="270" y="529" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="start prev"/>
+                                <state key="normal" backgroundImage="ic_autorenew_white"/>
                                 <connections>
                                     <action selector="vorschau:" destination="zBl-b2-NpZ" eventType="touchUpInside" id="uMt-Gs-w9k"/>
                                 </connections>
@@ -814,9 +814,9 @@
         <image name="background" width="750" height="1334"/>
         <image name="background2" width="166" height="240"/>
         <image name="batterie 100" width="24" height="24"/>
+        <image name="ic_autorenew_white" width="24" height="24"/>
         <image name="rotation right" width="48" height="48"/>
         <image name="start" width="48" height="48"/>
-        <image name="start prev" width="48" height="48"/>
         <image name="time_indicators" width="301" height="300"/>
     </resources>
 </document>

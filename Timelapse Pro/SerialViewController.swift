@@ -32,7 +32,7 @@ enum ReceivedMessageOption: Int {
     newline
 }
 
-final class SerialViewController: UIViewController, UITextFieldDelegate, BluetoothSerialDelegate {
+final class SerialViewController: UIViewController, CAAnimationDelegate, UITextFieldDelegate, BluetoothSerialDelegate {
     
     
     //***************************************ab hier geht es los***********************************************
@@ -597,6 +597,11 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         sendRecTime()
     }
     
+    
+    var isRotating = false
+    var shouldStopRotating = false
+    
+    
     @IBAction func vorschau(_ sender: UIButton) {
         var x = Int (degreeslider.startPointValue)
         var sx = "String"
@@ -627,9 +632,25 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         }
         msgLable.text = msg
         serial.sendMessageToDevice(msg)
-        sender.setBackgroundImage(#imageLiteral(resourceName: "prev in progress"), for: .normal)
+        vorschaubutton.isEnabled = false
+        if self.isRotating == false {
+            self.vorschaubutton.rotate360Degrees(completionDelegate: self)
+            self.isRotating = true
+        }
     }
     
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        if self.shouldStopRotating == false {
+            self.vorschaubutton.rotate360Degrees(completionDelegate: self)
+        } else {
+            self.reset()
+        }
+    }
+    
+    func reset() {
+        self.isRotating = false
+        self.shouldStopRotating = false
+    }
     
     //**************************************************************
     
@@ -818,7 +839,8 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         case let x where x.range(of: "i").length != 0:
             _ = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(sendStartSignal), userInfo: nil, repeats: false)
         case let x where x.range(of: "zz").length != 0:
-            vorschaubutton.setBackgroundImage( #imageLiteral(resourceName: "start prev"), for: .normal)
+                vorschaubutton.isEnabled = true
+                self.shouldStopRotating = true
         case let x where x.range(of: "xx").length != 0:
             startbutton.setBackgroundImage(#imageLiteral(resourceName: "start"), for: .normal)
         default: break
