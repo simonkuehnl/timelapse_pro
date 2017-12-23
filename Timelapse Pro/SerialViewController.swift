@@ -632,10 +632,12 @@ final class SerialViewController: UIViewController, CAAnimationDelegate, UITextF
         }
         msgLable.text = msg
         serial.sendMessageToDevice(msg)
+        if !akku.isHidden == true{
         vorschaubutton.isEnabled = false
         if self.isRotating == false {
             self.vorschaubutton.rotate360Degrees(completionDelegate: self)
             self.isRotating = true
+        }
         }
     }
     
