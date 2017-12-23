@@ -45,7 +45,7 @@ final class SerialViewController: UIViewController, CAAnimationDelegate, UITextF
         updateText(links: recLinks, rechts: recRechts, kürzel1: "h", kürzel2: "m", label: recTimeLabel)
         updateInt()
         updateText(links: playLinks, rechts: playRechts, kürzel1: "m", kürzel2: "s", label: playTimeLabel)
-        cameraPosition.endThumbImage = UIImage(named: "Foto")
+        cameraPosition.startThumbImage = UIImage(named: "Foto")
         serial = BluetoothSerial(delegate: self)
         
         NotificationCenter.default.addObserver(self, selector: #selector(SerialViewController.reloadView), name: NSNotification.Name(rawValue: "reloadStartViewController"), object: nil)
@@ -67,7 +67,7 @@ final class SerialViewController: UIViewController, CAAnimationDelegate, UITextF
         updatePresetIntervall()
     }
     
-    @IBOutlet weak var cameraPosition: CircularSlider!
+    @IBOutlet weak var cameraPosition: RangeCircularSlider!
     
     var receiveMessage = ""{
         willSet{
@@ -77,14 +77,14 @@ final class SerialViewController: UIViewController, CAAnimationDelegate, UITextF
     }
     
     
-    @IBAction func cameraPosition(_ sender: CircularSlider) {
+    @IBAction func cameraPosition(_ sender: RangeCircularSlider) {
        
         _ = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(sendCameraPostitionToDevice), userInfo: nil, repeats: false)
     }
     
     func sendCameraPostitionToDevice(){
         var msg = ""
-        var intmsg = Int(cameraPosition.endPointValue)
+        var intmsg = Int(cameraPosition.startPointValue)
         switch intmsg {
         case 0..<10:
             msg = "00"+String(intmsg)+"22"
